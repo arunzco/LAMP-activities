@@ -1,0 +1,24 @@
+name: Rename Latest Tag
+
+on:
+  release:
+    types:
+      - created
+
+jobs:
+  rename-tag:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Delete Existing Latest Tag
+        run: |
+          git tag -d latest
+          git push origin :refs/tags/latest
+
+      - name: Create New Latest Tag
+        run: |
+          git tag -a latest -m "Latest Release"
+          git push origin latest
