@@ -15,8 +15,8 @@ jobs:
 
       - name: Delete Existing Latest Tag
         run: |
-          git tag -d latest
-          git push origin :refs/tags/latest
+          git tag -d latest || true
+          git push origin :refs/tags/latest || true
 
       - name: Create New Latest Tag
         run: |
