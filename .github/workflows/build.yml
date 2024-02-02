@@ -1,7 +1,7 @@
 name: Build Activities
 on: 
   push:
-    branches: [master]
+    branches: [master1]
 jobs:
   build:
     runs-on: ubuntu-latest
